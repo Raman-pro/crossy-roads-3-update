@@ -249,6 +249,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "boat_left"
     },
+    "image6": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAVVV1dwAAAFBVVXx3DAAAVVXv/3//AABQBeD+f/8AAFUF4P5//wAAVVVVd3cPAABVBfD3fwcAAFUA8Pd/BwAAVQVw938HAABVVfD3fwcAAFBV9fd3BwAAUFVVd3cHAAAAVVV3dw8AAABQVXd3/wAAAAAAeRn/AA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "auto_right"
+    },
+    "image7": {
+        "data": "hwQQABAAAAAAAAAAeRn/AAAAUFV3d/8AAABVVXd3DwAAUFVVd3cHAABQVfX3dwcAAFVV8Pd/BwAAVQVw938HAABVAPD3fwcAAFUF8Pd/BwAAVVVVd3cPAABVBeD+f/8AAFAF4P5//wAAVVXv/3//AABQVVV8dwwAAABVVXV3AAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "auto_left"
+    },
     "Pqod/uo": {
         "namespace": "ow*XI|_+Hy9J",
         "id": "Pqod/uo",

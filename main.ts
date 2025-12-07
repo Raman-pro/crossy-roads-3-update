@@ -100,20 +100,20 @@ function reset_high_score () {
     blockSettings.remove("high-score")
 }
 function make_grass_lane () {
-    for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-        tiles.setWallAt(tiles.getTileLocation(col, 0), false)
+    for (let col2 = 0; col2 <= tiles.tilemapColumns() - 1; col2++) {
+        tiles.setWallAt(tiles.getTileLocation(col2, 0), false)
     }
     tiles.setWallAt(tiles.getTileLocation(0, 0), true)
     tiles.setTileAt(tiles.getTileLocation(0, 0), sprites.builtin.forestTiles0)
     tiles.setWallAt(tiles.getTileLocation(tiles.tilemapColumns() - 1, 0), true)
     tiles.setTileAt(tiles.getTileLocation(tiles.tilemapColumns() - 1, 0), sprites.builtin.forestTiles0)
-    for (let col = 0; col <= tiles.tilemapColumns() - 3; col++) {
+    for (let col3 = 0; col3 <= tiles.tilemapColumns() - 3; col3++) {
         if (Math.percentChance(75)) {
-            tiles.setTileAt(tiles.getTileLocation(col + 1, 0), assets.tile`grass`)
+            tiles.setTileAt(tiles.getTileLocation(col3 + 1, 0), assets.tile`grass`)
         } else if (Math.percentChance(50)) {
-            tiles.setTileAt(tiles.getTileLocation(col + 1, 0), [sprites.castle.tileGrass1, sprites.castle.tileGrass3, sprites.castle.tileGrass2]._pickRandom())
+            tiles.setTileAt(tiles.getTileLocation(col3 + 1, 0), [sprites.castle.tileGrass1, sprites.castle.tileGrass3, sprites.castle.tileGrass2]._pickRandom())
         } else {
-            tiles.setTileAt(tiles.getTileLocation(col + 1, 0), [
+            tiles.setTileAt(tiles.getTileLocation(col3 + 1, 0), [
             sprites.builtin.forestTiles0,
             sprites.builtin.forestTiles0,
             sprites.builtin.forestTiles0,
@@ -121,7 +121,7 @@ function make_grass_lane () {
             sprites.castle.rock1,
             assets.tile`stall`
             ]._pickRandom())
-            tiles.setWallAt(tiles.getTileLocation(col + 1, 0), true)
+            tiles.setWallAt(tiles.getTileLocation(col3 + 1, 0), true)
         }
     }
 }
@@ -210,7 +210,7 @@ function game_over (player_x: number, player_y: number) {
         player_x += scene.screenWidth() - (player_x + 20)
     }
     spriteutils.drawTransparentImage(crop_image(screen_shot, player_x - 20, player_y - 20, player_x + 20, player_y + 20), new_photo, 2, 2)
-    sprite_photo.setImage(scaling.scale2x(new_photo))
+sprite_photo.setImage(scaling.scale2x(new_photo))
     sprite_photo.z = 5
     sprite_photo.setPosition(scene.screenWidth() / 2, scene.screenHeight() / 2)
     sprite_photo.setFlag(SpriteFlag.RelativeToCamera, true)
@@ -240,9 +240,9 @@ function is_chinese () {
     return image_lang == ImageProp.chinese
 }
 function make_road_lane () {
-    for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-        tiles.setWallAt(tiles.getTileLocation(col, 0), false)
-        tiles.setTileAt(tiles.getTileLocation(col, 0), sprites.vehicle.roadHorizontal)
+    for (let col4 = 0; col4 <= tiles.tilemapColumns() - 1; col4++) {
+        tiles.setWallAt(tiles.getTileLocation(col4, 0), false)
+        tiles.setTileAt(tiles.getTileLocation(col4, 0), sprites.vehicle.roadHorizontal)
     }
     if (Math.percentChance(50)) {
         tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`road_right`)
@@ -277,7 +277,7 @@ function animate_chicken () {
     )
     character.runFrames(
     sprite_player,
-    assets.animation`chicken_hopping_front`,
+    chicken_hopping_front,
     50,
     character.rule(Predicate.MovingDown)
     )
@@ -289,7 +289,7 @@ function animate_chicken () {
     )
     character.runFrames(
     sprite_player,
-    assets.animation`chicken_hopping_right`,
+    chicken_hopping_right,
     50,
     character.rule(Predicate.MovingLeft)
     )
@@ -301,7 +301,7 @@ function animate_chicken () {
     )
     character.runFrames(
     sprite_player,
-    assets.animation`chicken_hopping_right0`,
+    chicken_hopping_right0,
     50,
     character.rule(Predicate.MovingRight)
     )
@@ -352,9 +352,9 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function make_waterway_lanes () {
-    for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-        tiles.setWallAt(tiles.getTileLocation(col, 0), false)
-        tiles.setTileAt(tiles.getTileLocation(col, 0), assets.tile`water`)
+    for (let col5 = 0; col5 <= tiles.tilemapColumns() - 1; col5++) {
+        tiles.setWallAt(tiles.getTileLocation(col5, 0), false)
+        tiles.setTileAt(tiles.getTileLocation(col5, 0), assets.tile`water`)
     }
     if (Math.percentChance(50)) {
         tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`water_right`)
@@ -389,26 +389,26 @@ function make_images () {
 function crop_image (image2: Image, from_x: number, from_y: number, to_x: number, to_y: number) {
     cropped_image = image.create(to_x - from_x, to_y - from_y)
     spriteutils.drawTransparentImage(image2, cropped_image, from_x * -1, from_y * -1)
-    return cropped_image
+return cropped_image
 }
 function is_english () {
     return image_lang == ImageProp.english
 }
 function move_sprites_down () {
-    for (let sprite of sprites.allOfKind(SpriteKind.Player)) {
-        sprite.y += tiles.tileWidth()
+    for (let sprite2 of sprites.allOfKind(SpriteKind.Player)) {
+        sprite2.y += tiles.tileWidth()
     }
-    for (let sprite of sprites.allOfKind(SpriteKind.Enemy)) {
-        sprite.y += tiles.tileWidth()
+    for (let sprite3 of sprites.allOfKind(SpriteKind.Enemy)) {
+        sprite3.y += tiles.tileWidth()
     }
-    for (let sprite of sprites.allOfKind(SpriteKind.Log)) {
-        sprite.y += tiles.tileWidth()
+    for (let sprite4 of sprites.allOfKind(SpriteKind.Log)) {
+        sprite4.y += tiles.tileWidth()
     }
-    for (let sprite of sprites.allOfKind(SpriteKind.RedLight)) {
-        sprite.y += tiles.tileWidth()
+    for (let sprite5 of sprites.allOfKind(SpriteKind.RedLight)) {
+        sprite5.y += tiles.tileWidth()
     }
-    for (let sprite of sprites.allOfKind(SpriteKind.Coin)) {
-        sprite.y += tiles.tileWidth()
+    for (let sprite6 of sprites.allOfKind(SpriteKind.Coin)) {
+        sprite6.y += tiles.tileWidth()
     }
 }
 function make_shadow (sprite: Sprite, shadow: Image) {
@@ -449,17 +449,17 @@ function wait_for_select () {
     }
 }
 function is_overlapping_kind (target: Sprite, kind: number) {
-    for (let sprite of sprites.allOfKind(kind)) {
-        if (target.overlapsWith(sprite)) {
+    for (let sprite7 of sprites.allOfKind(kind)) {
+        if (target.overlapsWith(sprite7)) {
             return true
         }
     }
     return false
 }
 function make_railway_lane () {
-    for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-        tiles.setWallAt(tiles.getTileLocation(col, 0), false)
-        tiles.setTileAt(tiles.getTileLocation(col, 0), assets.tile`railway`)
+    for (let col6 = 0; col6 <= tiles.tilemapColumns() - 1; col6++) {
+        tiles.setWallAt(tiles.getTileLocation(col6, 0), false)
+        tiles.setTileAt(tiles.getTileLocation(col6, 0), assets.tile`railway`)
     }
     tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`railway_right`)
     sprite_red_light = sprites.create(assets.image`red_light`, SpriteKind.RedLight)
@@ -510,13 +510,13 @@ blockMenu.onMenuOptionSelected(function (option, index) {
 function move_tilemap_down () {
     for (let row = 0; row <= tiles.tilemapRows() - 1; row++) {
         row_invert = tiles.tilemapRows() - 1 - row
-        for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-            tiles.setTileAt(tiles.getTileLocation(col, row_invert), tiles.getTileAtLocation(tiles.getTileLocation(col, row_invert - 1)))
-            tiles.setWallAt(tiles.getTileLocation(col, row_invert), tiles.tileIsWall(tiles.getTileLocation(col, row_invert - 1)))
+        for (let col7 = 0; col7 <= tiles.tilemapColumns() - 1; col7++) {
+            tiles.setTileAt(tiles.getTileLocation(col7, row_invert), tiles.getTileAtLocation(tiles.getTileLocation(col7, row_invert - 1)))
+            tiles.setWallAt(tiles.getTileLocation(col7, row_invert), tiles.tileIsWall(tiles.getTileLocation(col7, row_invert - 1)))
         }
     }
-    for (let col = 0; col <= tiles.tilemapColumns() - 1; col++) {
-        tiles.setWallAt(tiles.getTileLocation(col, 0), false)
+    for (let col8 = 0; col8 <= tiles.tilemapColumns() - 1; col8++) {
+        tiles.setWallAt(tiles.getTileLocation(col8, 0), false)
     }
 }
 function make_chicken () {
@@ -531,9 +531,9 @@ function make_chicken () {
     }
 }
 function sprite_kind_overlapped (target: Sprite, kind: number) {
-    for (let sprite of sprites.allOfKind(kind)) {
-        if (target.overlapsWith(sprite)) {
-            return sprite
+    for (let sprite8 of sprites.allOfKind(kind)) {
+        if (target.overlapsWith(sprite8)) {
+            return sprite8
         }
     }
     return [][0]
@@ -558,13 +558,9 @@ let sprite_score: TextSprite = null
 let sprite_score_text: Sprite = null
 let sprite_red_light: Sprite = null
 let selected = false
-let cropped_image: Image = null
 let image_score_text: Image = null
 let chicken_speed = 0
 let new_multi_lang_image: blockObject.BlockObject = null
-let player_x = 0
-let new_photo: Image = null
-let screen_shot: Image = null
 let high_scored = false
 let sprite_photo: Sprite = null
 let image_new_high_score_text: Image = null
@@ -580,6 +576,7 @@ let last_lane = ""
 let last_move_time = 0
 let image_settings_button_highlighted: Image = null
 let image_play_button_highlighted: Image = null
+let option_selected = 0
 let in_game = false
 let image_settings_button: Image = null
 let image_play_button: Image = null
@@ -588,6 +585,10 @@ let sprite_player: Sprite = null
 let shadows = false
 let text_lang = 0
 let image_lang = 0
+let screen_shot: Image = null
+let new_photo: Image = null
+let player_x = 0
+let cropped_image: Image = null
 if (blockSettings.exists("image_language")) {
     image_lang = blockSettings.readNumber("image_language")
 } else {
@@ -606,7 +607,7 @@ color.setPalette(
 color.Black
 )
 scene.setBackgroundColor(7)
-tiles.setTilemap(tilemap`map`)
+tiles.setTilemap(tilemap&#96;map&#96;)
 tile_map_cover_tiles()
 make_chicken()
 sprite_player.y += 8
@@ -626,7 +627,6 @@ sprite_settings_button.x = scene.screenWidth() * 0.65
 sprite_settings_button.bottom = scene.screenHeight() + 13
 sprite_settings_button.z = 5
 sprite_settings_button.setFlag(SpriteFlag.Ghost, true)
-let option_selected = 0
 in_game = false
 fade_out(1000, false)
 timer.background(function () {
@@ -742,16 +742,16 @@ timer.background(function () {
 })
 game.onUpdate(function () {
     if (shadows) {
-        for (let sprite of sprites.allOfKind(SpriteKind.Player)) {
-            sprite_shadow = sprites.readDataSprite(sprite, "shadow")
+        for (let sprite9 of sprites.allOfKind(SpriteKind.Player)) {
+            sprite_shadow = sprites.readDataSprite(sprite9, "shadow")
             if (sprite_shadow) {
-                sprite_shadow.setPosition(sprite.x, sprite.bottom)
+                sprite_shadow.setPosition(sprite9.x, sprite9.bottom)
             }
         }
-        for (let sprite of sprites.allOfKind(SpriteKind.Enemy)) {
-            sprite_shadow = sprites.readDataSprite(sprite, "shadow")
+        for (let sprite10 of sprites.allOfKind(SpriteKind.Enemy)) {
+            sprite_shadow = sprites.readDataSprite(sprite10, "shadow")
             if (sprite_shadow) {
-                sprite_shadow.setPosition(sprite.x, sprite.bottom)
+                sprite_shadow.setPosition(sprite10.x, sprite10.bottom)
             }
         }
     }
@@ -791,7 +791,7 @@ forever(function () {
             for (let index = 0; index < 5; index++) {
                 animation.runImageAnimation(
                 sprite_light,
-                assets.animation`red_light_flashing`,
+                red_light_flashing,
                 200,
                 false
                 )
